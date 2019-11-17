@@ -33,7 +33,7 @@ fs.readFile('sample.json','utf8',function(err,my_file){
             var my_para = par[i]; // take the first parameter
 
             for(var j=0;j<messages.length;j++) {
-                // check to which message name it maches
+                // check to which message name it matches
                 if(my_para===messages[j]._name) {
                     // take send event of that message
                     var send_event = messages[j]._sendEvent;
