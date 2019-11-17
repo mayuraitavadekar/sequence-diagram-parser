@@ -6,12 +6,12 @@ fs.readFile('sample.json','utf8',function(err,my_file){
     }
     try {
         const parser = JSON.parse(my_file);
-        
+
         var lifelines = parser['XMI']['Model']['packagedElement'][1]['ownedMember']['lifeline'];
         var messages = parser['XMI']['Model']['packagedElement'][1]['ownedMember']['message'];
         var fragments = parser['XMI']['Model']['packagedElement'][1]['ownedMember']['fragment'];
 
-    
+
 
         var par = new Array();
         var val = new Array();
@@ -25,13 +25,13 @@ fs.readFile('sample.json','utf8',function(err,my_file){
                 // console.log("Value : "+messages[i]._name);
                 val.push(messages[i]._name);
             }
-    
+
         }
 
         // main logic
         for(var i=0;i<par.length;i++) {
             var my_para = par[i]; // take the first parameter
-            
+
             for(var j=0;j<messages.length;j++) {
                 // check to which message name it maches
                 if(my_para===messages[j]._name) {
@@ -55,6 +55,8 @@ fs.readFile('sample.json','utf8',function(err,my_file){
                                             console.log("PARAMETER : "+my_para+" VALUE : "+my_val+"\n");
                                             break;
                                         }
+                                        else if(m == messages.length-1)
+                                          console.log("PARAMETER : "+my_para+" VALUE : NULL"+"\n")
                                     }
                                     break;
                                 }
