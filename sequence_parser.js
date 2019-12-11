@@ -11,10 +11,8 @@ fs.readFile('sample.json','utf8',function(err,my_file){
         var messages = parser['XMI']['Model']['packagedElement'][1]['ownedMember']['message'];
         var fragments = parser['XMI']['Model']['packagedElement'][1]['ownedMember']['fragment'];
 
-
-
-        var par = new Array();
-        var val = new Array();
+        var par = new Array(); // for storing parameters
+        var val = new Array(); // for storing values
 
         for(var i=0;i<messages.length;i++) {
             if(messages[i]._messageSort==="synchCall") {
