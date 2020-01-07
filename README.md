@@ -14,7 +14,7 @@ To use this repository :
 2. Open the terminal and type following commands. 
 
 ```node.js
-~$ cd sequence-diagram-parser # move into the folder
+~$ cd sequence-diagram-parser
 ~$ node sequence_parser.js
 ```
 
