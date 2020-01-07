@@ -1,0 +1,756 @@
+{
+	"XMI": {
+		"Documentation": {
+			"_exporter": "StarUML",
+			"_exporterVersion": "2.0",
+			"__prefix": "xmi"
+		},
+		"Model": {
+			"packagedElement": {
+				"ownedMember": {
+					"lifeline": [
+						{
+							"_xmi:id": "AAAAAAFvMpsTg8KzWOs=",
+							"_name": "atm",
+							"_visibility": "public",
+							"_xmi:type": "uml:Lifeline",
+							"_represents": "AAAAAAFvMpsTg8KycV0="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMp39gsLW7RY=",
+							"_name": "customerconsole",
+							"_visibility": "public",
+							"_xmi:type": "uml:Lifeline",
+							"_represents": "AAAAAAFvMp39gsLVEeg="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMp5F0sL5pEk=",
+							"_name": "printreceipt",
+							"_visibility": "public",
+							"_xmi:type": "uml:Lifeline",
+							"_represents": "AAAAAAFvMp5F0sL4fz0="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMp60SMMeqWc=",
+							"_name": "networktobank",
+							"_visibility": "public",
+							"_xmi:type": "uml:Lifeline",
+							"_represents": "AAAAAAFvMp60SMMd20Q="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMp8XlsM+4iA=",
+							"_name": "cashdispenser",
+							"_visibility": "public",
+							"_xmi:type": "uml:Lifeline",
+							"_represents": "AAAAAAFvMp8XlsM9ao8="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMp/JO8NeYvQ=",
+							"_name": "log",
+							"_visibility": "public",
+							"_xmi:type": "uml:Lifeline",
+							"_represents": "AAAAAAFvMp/JOsNd8E0="
+						}
+					],
+					"message": [
+						{
+							"_xmi:id": "AAAAAAFvMsPDyTTVc7A=",
+							"_name": "choose%20account%20type",
+							"_visibility": "public",
+							"_xmi:type": "uml:Message",
+							"_messageSort": "synchCall",
+							"_messageKind": "complete",
+							"_receiveEvent": "AAAAAAFvMv/hKgGpZu4=",
+							"_sendEvent": "AAAAAAFvMv/hKgGoKaQ="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMsQ+EjTsy/A=",
+							"_name": "account=account%20type()",
+							"_visibility": "public",
+							"_xmi:type": "uml:Message",
+							"_messageSort": "reply",
+							"_messageKind": "complete",
+							"_receiveEvent": "AAAAAAFvMv/hKgGr6UA=",
+							"_sendEvent": "AAAAAAFvMv/hKgGqTZg="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMsSsujUDl9g=",
+							"_name": "request%20account",
+							"_visibility": "public",
+							"_xmi:type": "uml:Message",
+							"_messageSort": "synchCall",
+							"_messageKind": "complete",
+							"_receiveEvent": "AAAAAAFvMv/hKgGtg6Y=",
+							"_sendEvent": "AAAAAAFvMv/hKgGsYuE="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMsYpDTUsIxk=",
+							"_name": "amt=amount()",
+							"_visibility": "public",
+							"_xmi:type": "uml:Message",
+							"_messageSort": "reply",
+							"_messageKind": "complete",
+							"_receiveEvent": "AAAAAAFvMv/hKgGvUSo=",
+							"_sendEvent": "AAAAAAFvMv/hKgGu1Yw="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMsazPzVEcjE=",
+							"_name": "display%20error()",
+							"_visibility": "public",
+							"_xmi:type": "uml:Message",
+							"_messageSort": "synchCall",
+							"_messageKind": "complete",
+							"_receiveEvent": "AAAAAAFvMv/hKgGxAwQ=",
+							"_sendEvent": "AAAAAAFvMv/hKgGwapk="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMs2mkjdmU9w=",
+							"_name": "send(message,amt)",
+							"_visibility": "public",
+							"_xmi:type": "uml:Message",
+							"_messageSort": "synchCall",
+							"_messageKind": "complete",
+							"_receiveEvent": "AAAAAAFvMv/hKgGzYGo=",
+							"_sendEvent": "AAAAAAFvMv/hKgGybZ4="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMs3sPTd83dA=",
+							"_name": "funds=fundstatus()",
+							"_visibility": "public",
+							"_xmi:type": "uml:Message",
+							"_messageSort": "reply",
+							"_messageKind": "complete",
+							"_receiveEvent": "AAAAAAFvMv/hKgG1zW8=",
+							"_sendEvent": "AAAAAAFvMv/hKgG0504="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMsnsvDbEu4E=",
+							"_name": "request%20amount()",
+							"_visibility": "public",
+							"_xmi:type": "uml:Message",
+							"_messageSort": "synchCall",
+							"_messageKind": "complete",
+							"_receiveEvent": "AAAAAAFvMv/hKgG3i3g=",
+							"_sendEvent": "AAAAAAFvMv/hKgG2JD8="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMspETTbbn/A=",
+							"_name": "amt=amount()",
+							"_visibility": "public",
+							"_xmi:type": "uml:Message",
+							"_messageSort": "reply",
+							"_messageKind": "complete",
+							"_receiveEvent": "AAAAAAFvMv/hKgG5QFU=",
+							"_sendEvent": "AAAAAAFvMv/hKgG4oKE="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMtFpIDeipB0=",
+							"_name": "send(message,amt)",
+							"_visibility": "public",
+							"_xmi:type": "uml:Message",
+							"_messageSort": "synchCall",
+							"_messageKind": "complete",
+							"_receiveEvent": "AAAAAAFvMv/hKgG74MI=",
+							"_sendEvent": "AAAAAAFvMv/hKgG6Ir8="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMtHPMzfEgFM=",
+							"_name": "funds=fundstatus()",
+							"_visibility": "public",
+							"_xmi:type": "uml:Message",
+							"_messageSort": "reply",
+							"_messageKind": "complete",
+							"_receiveEvent": "AAAAAAFvMv/hKgG9LZo=",
+							"_sendEvent": "AAAAAAFvMv/hKgG8ymU="
+						},
+						{
+							"argument": {
+								"_xmi:id": "AAAAAAFvMv/hKwHAaAY=",
+								"_xmi:type": "uml:LiteralString",
+								"_value": "amt"
+							},
+							"_xmi:id": "AAAAAAFvMtKNUTfgX9o=",
+							"_name": "send",
+							"_visibility": "public",
+							"_xmi:type": "uml:Message",
+							"_messageSort": "synchCall",
+							"_messageKind": "complete",
+							"_receiveEvent": "AAAAAAFvMv/hKgG/RbE=",
+							"_sendEvent": "AAAAAAFvMv/hKgG+HxM="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMtNs8jf76Nc=",
+							"_name": "bal=balance()",
+							"_visibility": "public",
+							"_xmi:type": "uml:Message",
+							"_messageSort": "reply",
+							"_messageKind": "complete",
+							"_receiveEvent": "AAAAAAFvMv/hKwHCBLQ=",
+							"_sendEvent": "AAAAAAFvMv/hKwHBVj8="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMtQgLzgUhVE=",
+							"_name": "dispense%20cash()",
+							"_visibility": "public",
+							"_xmi:type": "uml:Message",
+							"_messageSort": "synchCall",
+							"_messageKind": "complete",
+							"_receiveEvent": "AAAAAAFvMv/hKwHEgSc=",
+							"_sendEvent": "AAAAAAFvMv/hKwHDjOg="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMtSdQTgrabE=",
+							"_name": "amount%20dispensed",
+							"_visibility": "public",
+							"_xmi:type": "uml:Message",
+							"_messageSort": "reply",
+							"_messageKind": "complete",
+							"_receiveEvent": "AAAAAAFvMv/hKwHGD60=",
+							"_sendEvent": "AAAAAAFvMv/hKwHFykk="
+						},
+						{
+							"argument": {
+								"_xmi:id": "AAAAAAFvMv/hKwHJfZE=",
+								"_xmi:type": "uml:LiteralString",
+								"_value": "message"
+							},
+							"_xmi:id": "AAAAAAFvMtWQlDhJ/rk=",
+							"_name": "logsend",
+							"_visibility": "public",
+							"_xmi:type": "uml:Message",
+							"_messageSort": "synchCall",
+							"_messageKind": "complete",
+							"_receiveEvent": "AAAAAAFvMv/hKwHIlTE=",
+							"_sendEvent": "AAAAAAFvMv/hKwHHjj0="
+						},
+						{
+							"argument": {
+								"_xmi:id": "AAAAAAFvMv/hKwHM1jQ=",
+								"_xmi:type": "uml:LiteralString",
+								"_value": "message"
+							},
+							"_xmi:id": "AAAAAAFvMtYqAjhg30M=",
+							"_name": "logsend",
+							"_visibility": "public",
+							"_xmi:type": "uml:Message",
+							"_messageSort": "synchCall",
+							"_messageKind": "complete",
+							"_receiveEvent": "AAAAAAFvMv/hKwHLUwE=",
+							"_sendEvent": "AAAAAAFvMv/hKwHK+DA="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMtcURTh320Y=",
+							"_name": "logresponse",
+							"_visibility": "public",
+							"_xmi:type": "uml:Message",
+							"_messageSort": "reply",
+							"_messageKind": "complete",
+							"_receiveEvent": "AAAAAAFvMv/hKwHOw6w=",
+							"_sendEvent": "AAAAAAFvMv/hKwHNJcA="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMtdbZTiOyoY=",
+							"_name": "logresponse",
+							"_visibility": "public",
+							"_xmi:type": "uml:Message",
+							"_messageSort": "reply",
+							"_messageKind": "complete",
+							"_receiveEvent": "AAAAAAFvMv/hKwHQ9mo=",
+							"_sendEvent": "AAAAAAFvMv/hKwHPLwc="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMtlAezi/s2I=",
+							"_name": "printreceipt",
+							"_visibility": "public",
+							"_xmi:type": "uml:Message",
+							"_messageSort": "synchCall",
+							"_messageKind": "complete",
+							"_receiveEvent": "AAAAAAFvMv/hKwHSk8c=",
+							"_sendEvent": "AAAAAAFvMv/hKwHRNEI="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMu1gTgCyQ6E=",
+							"_name": "display%20error()",
+							"_visibility": "public",
+							"_xmi:type": "uml:Message",
+							"_messageSort": "synchCall",
+							"_messageKind": "complete",
+							"_receiveEvent": "AAAAAAFvMv/hKwHUHiU=",
+							"_sendEvent": "AAAAAAFvMv/hKwHTaH4="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMtr2bDjsZ9M=",
+							"_name": "display%20error()",
+							"_visibility": "public",
+							"_xmi:type": "uml:Message",
+							"_messageSort": "synchCall",
+							"_messageKind": "complete",
+							"_receiveEvent": "AAAAAAFvMv/hKwHWrhs=",
+							"_sendEvent": "AAAAAAFvMv/hKwHVmQQ="
+						}
+					],
+					"fragment": [
+						{
+							"_xmi:id": "AAAAAAFvMv/hKgGoKaQ=",
+							"_xmi:type": "uml:OccurrenceSpecification",
+							"_covered": "AAAAAAFvMpsTg8KzWOs="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMv/hKgGpZu4=",
+							"_xmi:type": "uml:OccurrenceSpecification",
+							"_covered": "AAAAAAFvMp39gsLW7RY="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMv/hKgGqTZg=",
+							"_xmi:type": "uml:OccurrenceSpecification",
+							"_covered": "AAAAAAFvMp39gsLW7RY="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMv/hKgGr6UA=",
+							"_xmi:type": "uml:OccurrenceSpecification",
+							"_covered": "AAAAAAFvMpsTg8KzWOs="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMv/hKgGsYuE=",
+							"_xmi:type": "uml:OccurrenceSpecification",
+							"_covered": "AAAAAAFvMpsTg8KzWOs="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMv/hKgGtg6Y=",
+							"_xmi:type": "uml:OccurrenceSpecification",
+							"_covered": "AAAAAAFvMp39gsLW7RY="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMv/hKgGu1Yw=",
+							"_xmi:type": "uml:OccurrenceSpecification",
+							"_covered": "AAAAAAFvMp39gsLW7RY="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMv/hKgGvUSo=",
+							"_xmi:type": "uml:OccurrenceSpecification",
+							"_covered": "AAAAAAFvMpsTg8KzWOs="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMv/hKgGwapk=",
+							"_xmi:type": "uml:OccurrenceSpecification",
+							"_covered": "AAAAAAFvMpsTg8KzWOs="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMv/hKgGxAwQ=",
+							"_xmi:type": "uml:OccurrenceSpecification",
+							"_covered": "AAAAAAFvMp39gsLW7RY="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMv/hKgGybZ4=",
+							"_xmi:type": "uml:OccurrenceSpecification",
+							"_covered": "AAAAAAFvMpsTg8KzWOs="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMv/hKgGzYGo=",
+							"_xmi:type": "uml:OccurrenceSpecification",
+							"_covered": "AAAAAAFvMpsTg8KzWOs="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMv/hKgG0504=",
+							"_xmi:type": "uml:OccurrenceSpecification",
+							"_covered": "AAAAAAFvMpsTg8KzWOs="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMv/hKgG1zW8=",
+							"_xmi:type": "uml:OccurrenceSpecification",
+							"_covered": "AAAAAAFvMpsTg8KzWOs="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMv/hKgG2JD8=",
+							"_xmi:type": "uml:OccurrenceSpecification",
+							"_covered": "AAAAAAFvMpsTg8KzWOs="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMv/hKgG3i3g=",
+							"_xmi:type": "uml:OccurrenceSpecification",
+							"_covered": "AAAAAAFvMp39gsLW7RY="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMv/hKgG4oKE=",
+							"_xmi:type": "uml:OccurrenceSpecification",
+							"_covered": "AAAAAAFvMp39gsLW7RY="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMv/hKgG5QFU=",
+							"_xmi:type": "uml:OccurrenceSpecification",
+							"_covered": "AAAAAAFvMpsTg8KzWOs="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMv/hKgG6Ir8=",
+							"_xmi:type": "uml:OccurrenceSpecification",
+							"_covered": "AAAAAAFvMpsTg8KzWOs="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMv/hKgG74MI=",
+							"_xmi:type": "uml:OccurrenceSpecification",
+							"_covered": "AAAAAAFvMpsTg8KzWOs="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMv/hKgG8ymU=",
+							"_xmi:type": "uml:OccurrenceSpecification",
+							"_covered": "AAAAAAFvMpsTg8KzWOs="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMv/hKgG9LZo=",
+							"_xmi:type": "uml:OccurrenceSpecification",
+							"_covered": "AAAAAAFvMpsTg8KzWOs="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMv/hKgG+HxM=",
+							"_xmi:type": "uml:OccurrenceSpecification",
+							"_covered": "AAAAAAFvMpsTg8KzWOs="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMv/hKgG/RbE=",
+							"_xmi:type": "uml:OccurrenceSpecification",
+							"_covered": "AAAAAAFvMp60SMMeqWc="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMv/hKwHBVj8=",
+							"_xmi:type": "uml:OccurrenceSpecification",
+							"_covered": "AAAAAAFvMp60SMMeqWc="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMv/hKwHCBLQ=",
+							"_xmi:type": "uml:OccurrenceSpecification",
+							"_covered": "AAAAAAFvMpsTg8KzWOs="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMv/hKwHDjOg=",
+							"_xmi:type": "uml:OccurrenceSpecification",
+							"_covered": "AAAAAAFvMpsTg8KzWOs="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMv/hKwHEgSc=",
+							"_xmi:type": "uml:OccurrenceSpecification",
+							"_covered": "AAAAAAFvMp8XlsM+4iA="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMv/hKwHFykk=",
+							"_xmi:type": "uml:OccurrenceSpecification",
+							"_covered": "AAAAAAFvMp8XlsM+4iA="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMv/hKwHGD60=",
+							"_xmi:type": "uml:OccurrenceSpecification",
+							"_covered": "AAAAAAFvMpsTg8KzWOs="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMv/hKwHHjj0=",
+							"_xmi:type": "uml:OccurrenceSpecification",
+							"_covered": "AAAAAAFvMpsTg8KzWOs="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMv/hKwHIlTE=",
+							"_xmi:type": "uml:OccurrenceSpecification",
+							"_covered": "AAAAAAFvMp60SMMeqWc="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMv/hKwHK+DA=",
+							"_xmi:type": "uml:OccurrenceSpecification",
+							"_covered": "AAAAAAFvMp60SMMeqWc="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMv/hKwHLUwE=",
+							"_xmi:type": "uml:OccurrenceSpecification",
+							"_covered": "AAAAAAFvMp/JO8NeYvQ="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMv/hKwHNJcA=",
+							"_xmi:type": "uml:OccurrenceSpecification",
+							"_covered": "AAAAAAFvMp/JO8NeYvQ="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMv/hKwHOw6w=",
+							"_xmi:type": "uml:OccurrenceSpecification",
+							"_covered": "AAAAAAFvMp60SMMeqWc="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMv/hKwHPLwc=",
+							"_xmi:type": "uml:OccurrenceSpecification",
+							"_covered": "AAAAAAFvMp60SMMeqWc="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMv/hKwHQ9mo=",
+							"_xmi:type": "uml:OccurrenceSpecification",
+							"_covered": "AAAAAAFvMpsTg8KzWOs="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMv/hKwHRNEI=",
+							"_xmi:type": "uml:OccurrenceSpecification",
+							"_covered": "AAAAAAFvMpsTg8KzWOs="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMv/hKwHSk8c=",
+							"_xmi:type": "uml:OccurrenceSpecification",
+							"_covered": "AAAAAAFvMp5F0sL5pEk="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMv/hKwHTaH4=",
+							"_xmi:type": "uml:OccurrenceSpecification",
+							"_covered": "AAAAAAFvMpsTg8KzWOs="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMv/hKwHUHiU=",
+							"_xmi:type": "uml:OccurrenceSpecification",
+							"_covered": "AAAAAAFvMp39gsLW7RY="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMv/hKwHVmQQ=",
+							"_xmi:type": "uml:OccurrenceSpecification",
+							"_covered": "AAAAAAFvMpsTg8KzWOs="
+						},
+						{
+							"_xmi:id": "AAAAAAFvMv/hKwHWrhs=",
+							"_xmi:type": "uml:OccurrenceSpecification",
+							"_covered": "AAAAAAFvMp39gsLW7RY="
+						},
+						{
+							"operand": [
+								{
+									"guard": {
+										"_xmi:id": "AAAAAAFvMv/hKwHX7nQ=",
+										"_xmi:type": "uml:Constraint",
+										"_specification": "account=savings()"
+									},
+									"_xmi:id": "AAAAAAFvMupFeABy+ng=",
+									"_name": "Operand1",
+									"_visibility": "public",
+									"_isReentrant": "true",
+									"_xmi:type": "uml:InteractionOperand"
+								},
+								{
+									"guard": {
+										"_xmi:id": "AAAAAAFvMv/hKwHYIsw=",
+										"_xmi:type": "uml:Constraint",
+										"_specification": "account=checking"
+									},
+									"_xmi:id": "AAAAAAFvMvSlYwEiO7Y=",
+									"_name": "Operand1",
+									"_visibility": "public",
+									"_isReentrant": "true",
+									"_xmi:type": "uml:InteractionOperand"
+								}
+							],
+							"_xmi:id": "AAAAAAFvMupFeABx7RQ=",
+							"_visibility": "public",
+							"_isReentrant": "true",
+							"_xmi:type": "uml:CombinedFragment",
+							"_interactionOperator": "alt"
+						},
+						{
+							"operand": [
+								{
+									"guard": {
+										"_xmi:id": "AAAAAAFvMv/hKwHZ5ws=",
+										"_xmi:type": "uml:Constraint",
+										"_specification": "amount%3E10000"
+									},
+									"_xmi:id": "AAAAAAFvMuu8gACOnkw=",
+									"_name": "Operand1",
+									"_visibility": "public",
+									"_isReentrant": "true",
+									"_xmi:type": "uml:InteractionOperand"
+								},
+								{
+									"guard": {
+										"_xmi:id": "AAAAAAFvMv/hKwHaCD4=",
+										"_xmi:type": "uml:Constraint",
+										"_specification": "amount%3C=10000"
+									},
+									"_xmi:id": "AAAAAAFvMvJaBwD691s=",
+									"_name": "Operand1",
+									"_visibility": "public",
+									"_isReentrant": "true",
+									"_xmi:type": "uml:InteractionOperand"
+								}
+							],
+							"_xmi:id": "AAAAAAFvMuu8gACNofw=",
+							"_visibility": "public",
+							"_isReentrant": "true",
+							"_xmi:type": "uml:CombinedFragment",
+							"_interactionOperator": "alt"
+						},
+						{
+							"operand": [
+								{
+									"guard": {
+										"_xmi:id": "AAAAAAFvMv/hKwHbD9U=",
+										"_xmi:type": "uml:Constraint",
+										"_specification": "funds-amount%3E0"
+									},
+									"_xmi:id": "AAAAAAFvMvlzeQE4P3c=",
+									"_name": "Operand1",
+									"_visibility": "public",
+									"_isReentrant": "true",
+									"_xmi:type": "uml:InteractionOperand"
+								},
+								{
+									"guard": {
+										"_xmi:id": "AAAAAAFvMv/hKwHcSBs=",
+										"_xmi:type": "uml:Constraint",
+										"_specification": "funds-amount%3C0"
+									},
+									"_xmi:id": "AAAAAAFvMvnk/wFQs7k=",
+									"_name": "Operand1",
+									"_visibility": "public",
+									"_isReentrant": "true",
+									"_xmi:type": "uml:InteractionOperand"
+								}
+							],
+							"_xmi:id": "AAAAAAFvMvlzeAE33O4=",
+							"_visibility": "public",
+							"_isReentrant": "true",
+							"_xmi:type": "uml:CombinedFragment",
+							"_interactionOperator": "alt"
+						},
+						{
+							"operand": [
+								{
+									"guard": {
+										"_xmi:id": "AAAAAAFvMv/hKwHdks4=",
+										"_xmi:type": "uml:Constraint",
+										"_specification": "balance-amount%3E=0"
+									},
+									"_xmi:id": "AAAAAAFvMvwHygFmBiE=",
+									"_name": "Operand1",
+									"_visibility": "public",
+									"_isReentrant": "true",
+									"_xmi:type": "uml:InteractionOperand"
+								},
+								{
+									"guard": {
+										"_xmi:id": "AAAAAAFvMv/hKwHefsQ=",
+										"_xmi:type": "uml:Constraint",
+										"_specification": "balance-amount%3C0"
+									},
+									"_xmi:id": "AAAAAAFvMvw/aQF+Kzg=",
+									"_name": "Operand1",
+									"_visibility": "public",
+									"_isReentrant": "true",
+									"_xmi:type": "uml:InteractionOperand"
+								}
+							],
+							"_xmi:id": "AAAAAAFvMvwHyQFlAGo=",
+							"_visibility": "public",
+							"_isReentrant": "true",
+							"_xmi:type": "uml:CombinedFragment",
+							"_interactionOperator": "alt"
+						}
+					],
+					"_xmi:id": "AAAAAAFvMpraOcKj/DM=",
+					"_name": "Interaction1",
+					"_visibility": "public",
+					"_isReentrant": "true",
+					"_xmi:type": "uml:Interaction"
+				},
+				"ownedAttribute": [
+					{
+						"_xmi:id": "AAAAAAFvMpsTg8KycV0=",
+						"_name": "Role1",
+						"_visibility": "public",
+						"_isStatic": "false",
+						"_isLeaf": "false",
+						"_isReadOnly": "false",
+						"_isOrdered": "false",
+						"_isUnique": "false",
+						"_xmi:type": "uml:Property",
+						"_aggregation": "none",
+						"_isDerived": "false",
+						"_isID": "false"
+					},
+					{
+						"_xmi:id": "AAAAAAFvMp39gsLVEeg=",
+						"_name": "Role2",
+						"_visibility": "public",
+						"_isStatic": "false",
+						"_isLeaf": "false",
+						"_isReadOnly": "false",
+						"_isOrdered": "false",
+						"_isUnique": "false",
+						"_xmi:type": "uml:Property",
+						"_aggregation": "none",
+						"_isDerived": "false",
+						"_isID": "false"
+					},
+					{
+						"_xmi:id": "AAAAAAFvMp5F0sL4fz0=",
+						"_name": "Role3",
+						"_visibility": "public",
+						"_isStatic": "false",
+						"_isLeaf": "false",
+						"_isReadOnly": "false",
+						"_isOrdered": "false",
+						"_isUnique": "false",
+						"_xmi:type": "uml:Property",
+						"_aggregation": "none",
+						"_isDerived": "false",
+						"_isID": "false"
+					},
+					{
+						"_xmi:id": "AAAAAAFvMp60SMMd20Q=",
+						"_name": "Role4",
+						"_visibility": "public",
+						"_isStatic": "false",
+						"_isLeaf": "false",
+						"_isReadOnly": "false",
+						"_isOrdered": "false",
+						"_isUnique": "false",
+						"_xmi:type": "uml:Property",
+						"_aggregation": "none",
+						"_isDerived": "false",
+						"_isID": "false"
+					},
+					{
+						"_xmi:id": "AAAAAAFvMp8XlsM9ao8=",
+						"_name": "Role5",
+						"_visibility": "public",
+						"_isStatic": "false",
+						"_isLeaf": "false",
+						"_isReadOnly": "false",
+						"_isOrdered": "false",
+						"_isUnique": "false",
+						"_xmi:type": "uml:Property",
+						"_aggregation": "none",
+						"_isDerived": "false",
+						"_isID": "false"
+					},
+					{
+						"_xmi:id": "AAAAAAFvMp/JOsNd8E0=",
+						"_name": "Role6",
+						"_visibility": "public",
+						"_isStatic": "false",
+						"_isLeaf": "false",
+						"_isReadOnly": "false",
+						"_isOrdered": "false",
+						"_isUnique": "false",
+						"_xmi:type": "uml:Property",
+						"_aggregation": "none",
+						"_isDerived": "false",
+						"_isID": "false"
+					}
+				],
+				"_xmi:id": "AAAAAAFvMpraOcKijGU=",
+				"_name": "Collaboration1",
+				"_visibility": "public",
+				"_isAbstract": "false",
+				"_isFinalSpecialization": "false",
+				"_isLeaf": "false",
+				"_xmi:type": "uml:Collaboration"
+			},
+			"_xmi:id": "AAAAAAFvMv/hJwGny6o=",
+			"_xmi:type": "uml:Model",
+			"_name": "RootModel",
+			"__prefix": "uml"
+		},
+		"_xmlns:uml": "http://schema.omg.org/spec/UML/2.0",
+		"_xmlns:xmi": "http://schema.omg.org/spec/XMI/2.1",
+		"_xmi:version": "2.1",
+		"__prefix": "xmi"
+	}
+}
