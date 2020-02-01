@@ -1,19 +1,19 @@
 const fs = require('fs');
 
-fs.readFile('file.json','utf8',function(err,my_file){
+fs.readFile('t.json','utf8',function(err,my_file){
     if(err) {
         console.log("error in opening file.");
     }
     try {
         const parser = JSON.parse(my_file);
 
-        var lifelines = parser['XMI']['Model']['packagedElement']['ownedMember']['lifeline'];
-        var messages = parser['XMI']['Model']['packagedElement']['ownedMember']['message'];
-        var fragments = parser['XMI']['Model']['packagedElement']['ownedMember']['fragment'];
+        //var lifelines = parser['XMI']['Model']['packagedElement']['ownedMember']['lifeline'];
+        //var messages = parser['XMI']['Model']['packagedElement']['ownedMember']['message'];
+        //var fragments = parser['XMI']['Model']['packagedElement']['ownedMember']['fragment'];
 
-        //var lifelines = parser['XMI']['Model']['packagedElement'][1]['ownedMember']['lifeline'];
-        //var messages = parser['XMI']['Model']['packagedElement'][1]['ownedMember']['message'];
-        //var fragments = parser['XMI']['Model']['packagedElement'][1]['ownedMember']['fragment'];
+        var lifelines = parser['XMI']['Model']['packagedElement'][1]['ownedMember']['lifeline'];
+        var messages = parser['XMI']['Model']['packagedElement'][1]['ownedMember']['message'];
+        var fragments = parser['XMI']['Model']['packagedElement'][1]['ownedMember']['fragment'];
 
         var par = new Array();
         var val = new Array();
@@ -70,131 +70,145 @@ fs.readFile('file.json','utf8',function(err,my_file){
             }
         }
 
-        // getting gaurd conditions
-        var guard_condition_array = new Array();
+        // check if the diagram has guard conditions in it;
+
+        var flag = 0;
 
         for(var i=0;i<fragments.length;i++) {
+
             if(fragments[i].hasOwnProperty('operand')) {
-                // then select that fragment
-                var f = fragments[i];
-                // take operand array in that fragment
-                var operand_array = f['operand'];
-                // traverse the operand array
-                for(var j=0;j<operand_array.length;j++) {
-                    // take each element one by one
-                    var condition = operand_array[j]['guard']._specification
-                    // save this condition to guard condition array
-                    guard_condition_array.push(condition);
-                } 
-            }
-        }
-        
-        console.log('guard conditions');
-        console.log(guard_condition_array);
-
-        // creating json array
-        var guard_condition_data = [];
-
-        
-        for(var i=0;i<guard_condition_array.length;i++) {
-            var condition = guard_condition_array[i];
-            if(condition.includes('%3C=')) {
-                var split_condition = condition.split('%3C=');
-                guard_condition_data.push({
-                    'parameter' : split_condition[0],
-                    'operator' : '<=',
-                    'value' : split_condition[1]
-                });
+                flag = 1;
             }
 
-            else if(condition.includes('%3E=')) {
-                var split_condition = condition.split('%3E=');
-                guard_condition_data.push({
-                    'parameter' : split_condition[0],
-                    'operator' : '>=',
-                    'value' : split_condition[1]
-                });
-            }
-
-            else if(condition.includes('%3C')) {
-                var split_condition = condition.split('%3C');
-                guard_condition_data.push({
-                    'parameter' : split_condition[0],
-                    'operator' : '<',
-                    'value' : split_condition[1]
-                });
-            }
-
-            else if(condition.includes('%3E')) {
-                var split_condition = condition.split('%3E');
-                guard_condition_data.push({
-                    'parameter' : split_condition[0],
-                    'operator' : '>',
-                    'value' : split_condition[1]
-                });
-            }
-
-            else if(condition.includes('=')) {
-                var split_condition = condition.split('=');
-                guard_condition_data.push({
-                    'parameter' : split_condition[0],
-                    'operator' : '=',
-                    'value' : split_condition[1]
-                });
-            }
         }
 
-        console.log('json array');
-        console.log(guard_condition_data);
-        console.table(guard_condition_data);
+        if(flag === 1) {
 
+            // getting gaurd conditions
+            var guard_condition_array = new Array();
 
-        // now processing created json array to find matrix rows and columns
-        
-        // finding unique parameter values for columns
-        var par_arr = new Array(); 
-        var unique_parameters = new Array();
-
-        for(var i=0;i<guard_condition_data.length;i++) {
-            par_arr.push(guard_condition_data[i].parameter);
-        }
-
-        for(var i=0;i<par_arr.length;i++) {
-            if(!unique_parameters.includes(par_arr[i])) {
-                unique_parameters.push(par_arr[i]);
-            }
-        }
-        
-        // generating final tables
-        var table = [];
-        console.log('paramters\t\tvalue-1\t\tvalue2');
-        for(var i=0;i<unique_parameters.length;i++) {
-            process.stdout.write(unique_parameters[i]);
-            for(var j=0;j<guard_condition_data.length;j++) {
-                if(unique_parameters[i]===guard_condition_data[j].parameter) {
-                    process.stdout.write('\t\t'+guard_condition_data[j].operator+guard_condition_data[j].value);
+            for(var i=0;i<fragments.length;i++) {
+                if(fragments[i].hasOwnProperty('operand')) {
+                    // then select that fragment
+                    var f = fragments[i];
+                    // take operand array in that fragment
+                    var operand_array = f['operand'];
+                    // traverse the operand array
+                    for(var j=0;j<operand_array.length;j++) {
+                        // take each element one by one
+                        var condition = operand_array[j]['guard']._specification
+                        // save this condition to guard condition array
+                        guard_condition_array.push(condition);
+                    } 
                 }
             }
+            
+            console.log('guard conditions');
+            console.log(guard_condition_array);
+
+            // creating json array
+            var guard_condition_data = [];
+
+            for(var i=0;i<guard_condition_array.length;i++) {
+                var condition = guard_condition_array[i];
+                if(condition.includes('%3C=')) {
+                    var split_condition = condition.split('%3C=');
+                    guard_condition_data.push({
+                        'parameter' : split_condition[0],
+                        'operator' : '<=',
+                        'value' : split_condition[1]
+                    });
+                }
+
+                else if(condition.includes('%3E=')) {
+                    var split_condition = condition.split('%3E=');
+                    guard_condition_data.push({
+                        'parameter' : split_condition[0],
+                        'operator' : '>=',
+                        'value' : split_condition[1]
+                    });
+                }
+
+                else if(condition.includes('%3C')) {
+                    var split_condition = condition.split('%3C');
+                    guard_condition_data.push({
+                        'parameter' : split_condition[0],
+                        'operator' : '<',
+                        'value' : split_condition[1]
+                    });
+                }
+
+                else if(condition.includes('%3E')) {
+                    var split_condition = condition.split('%3E');
+                    guard_condition_data.push({
+                        'parameter' : split_condition[0],
+                        'operator' : '>',
+                        'value' : split_condition[1]
+                    });
+                }
+
+                else if(condition.includes('=')) {
+                    var split_condition = condition.split('=');
+                    guard_condition_data.push({
+                        'parameter' : split_condition[0],
+                        'operator' : '=',
+                        'value' : split_condition[1]
+                    });
+                }
+            }
+
+            console.log('json array');
+            console.log(guard_condition_data);
+            console.table(guard_condition_data);
+
+
+            // now processing created json array to find matrix rows and columns
+            
+            // finding unique parameter values for columns
+            var par_arr = new Array(); 
+            var unique_parameters = new Array();
+
+            for(var i=0;i<guard_condition_data.length;i++) {
+                par_arr.push(guard_condition_data[i].parameter);
+            }
+
+            for(var i=0;i<par_arr.length;i++) {
+                if(!unique_parameters.includes(par_arr[i])) {
+                    unique_parameters.push(par_arr[i]);
+                }
+            }
+            
+            // generating final tables
+            var table = [];
+            console.log('paramters\t\tvalue-1\t\tvalue2');
+            for(var i=0;i<unique_parameters.length;i++) {
+                process.stdout.write(unique_parameters[i]);
+                for(var j=0;j<guard_condition_data.length;j++) {
+                    if(unique_parameters[i]===guard_condition_data[j].parameter) {
+                        process.stdout.write('\t\t'+guard_condition_data[j].operator+guard_condition_data[j].value);
+                    }
+                }
+                console.log();
+            }
+
+            console.log("**************TWO WAY TEST CASES*****************");
             console.log();
-        }
-
-        console.log("**************TWO WAY TEST CASES*****************");
-        console.log();
-        for(var i=0;i<guard_condition_data.length;i++) {
-            for(var j=i+1;j<guard_condition_data.length;j++) {
-                if(guard_condition_data[i].parameter!=guard_condition_data[j].parameter) {
-                    console.log(guard_condition_data[i].parameter+guard_condition_data[i].operator+guard_condition_data[i].value+" AND "+guard_condition_data[j].parameter+guard_condition_data[j].operator+guard_condition_data[j].value)
+            for(var i=0;i<guard_condition_data.length;i++) {
+                for(var j=i+1;j<guard_condition_data.length;j++) {
+                    if(guard_condition_data[i].parameter!=guard_condition_data[j].parameter) {
+                        console.log(guard_condition_data[i].parameter+guard_condition_data[i].operator+guard_condition_data[i].value+" AND "+guard_condition_data[j].parameter+guard_condition_data[j].operator+guard_condition_data[j].value)
+                    }
                 }
             }
-        }
 
-        console.log("**************THREE WAY TEST CASES*****************");
-        console.log();
-        for(var i=0;i<guard_condition_data.length;i++) {
-            for(var j=i+1;j<guard_condition_data.length;j++) {
-                for(var k=j+1;k<guard_condition_data.length;k++) {
-                    if(guard_condition_data[i].parameter!=guard_condition_data[j].parameter && guard_condition_data[j].parameter!=guard_condition_data[k].parameter && guard_condition_data[i].parameter!=guard_condition_data[k].parameter) {
-                        console.log(guard_condition_data[i].parameter+guard_condition_data[i].operator+guard_condition_data[i].value+" AND "+guard_condition_data[j].parameter+guard_condition_data[j].operator+guard_condition_data[j].value+" AND "+guard_condition_data[k].parameter+guard_condition_data[k].operator+guard_condition_data[k].value);
+            console.log("**************THREE WAY TEST CASES*****************");
+            console.log();
+            for(var i=0;i<guard_condition_data.length;i++) {
+                for(var j=i+1;j<guard_condition_data.length;j++) {
+                    for(var k=j+1;k<guard_condition_data.length;k++) {
+                        if(guard_condition_data[i].parameter!=guard_condition_data[j].parameter && guard_condition_data[j].parameter!=guard_condition_data[k].parameter && guard_condition_data[i].parameter!=guard_condition_data[k].parameter) {
+                            console.log(guard_condition_data[i].parameter+guard_condition_data[i].operator+guard_condition_data[i].value+" AND "+guard_condition_data[j].parameter+guard_condition_data[j].operator+guard_condition_data[j].value+" AND "+guard_condition_data[k].parameter+guard_condition_data[k].operator+guard_condition_data[k].value);
+                        }
                     }
                 }
             }
