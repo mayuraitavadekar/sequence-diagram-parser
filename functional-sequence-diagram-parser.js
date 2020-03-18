@@ -133,7 +133,7 @@ function checkGuardCondition(fragments) {
 }
 
 // extract guard conditions if available.
-function extractGuardConditions() {
+function extractGuardConditions(fragments) {
 
     // getting gaurd conditions
     var guard_condition_array = new Array();
