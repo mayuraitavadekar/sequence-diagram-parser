@@ -66,6 +66,7 @@ function fillPVMatrix(finalConfig) {
         }
         console.log();
     }
+    console.log("\n\n")
 }
 
 function extractData(lifelines,messages,fragments) {
@@ -175,8 +176,8 @@ function extractGuardConditions(fragments) {
         }
     }
     
-    console.log('guard conditions');
-    console.log(guard_condition_array);
+    //console.log('guard conditions');
+    //console.log(guard_condition_array);
 
     // creating json array
     var guard_condition_data = [];
@@ -229,9 +230,9 @@ function extractGuardConditions(fragments) {
         }
     }
 
-    console.log('json array');
-    console.log(guard_condition_data);
-    console.table(guard_condition_data);
+    //console.log('json array');
+    //console.log(guard_condition_data);
+    //console.table(guard_condition_data);
 
 
     // now processing created json array to find matrix rows and columns
@@ -250,7 +251,8 @@ function extractGuardConditions(fragments) {
         }
     }
     
-    // generating final tables
+    // generating final tables of guard condition
+    /*
     var table = [];
     console.log('paramters\t\tvalue-1\t\tvalue2');
     for(var i=0;i<unique_parameters.length;i++) {
@@ -262,6 +264,7 @@ function extractGuardConditions(fragments) {
         }
         console.log();
     }
+    */
 
     console.log("**************TWO WAY TEST CASES*****************");
     console.log();
@@ -272,6 +275,8 @@ function extractGuardConditions(fragments) {
             }
         }
     }
+
+    console.log("\n\n")
 
     console.log("**************THREE WAY TEST CASES*****************");
     console.log();
