@@ -1,5 +1,6 @@
 const fs = require('fs');
 const process = require('process');
+const readline = require('readline-sync');
 
 var par = new Array();
 var val = new Array;
@@ -19,9 +20,84 @@ function createPVMatrix() {
 
 function fillPVMatrix(finalConfig) {
 
+    // console.log(finalConfig);
+
+    let n = readline.questionInt('enter ways of test cases : ');
+
+    if(n === 2) {
+        // 2 way test case generation
+        let par1 = readline.question('enter par 1 : ');
+        let par2 = readline.question('enter par 2 : ');
+        let arr1 = new Array();
+        let arr2 = new Array();
+        
+        // searching par1 and par2 in final config
+        for(var i=0;i<finalConfig.length;i++) {
+            if(finalConfig[i].parameter === par1) {
+                // extract values into arr1
+                arr1 = finalConfig[i].value.split(" or ");
+                flag1 = 1;
+            }
+
+            if(finalConfig[i].parameter === par2) {
+                // exract the values into arr2
+                arr2 = finalConfig[i].value.split(" or ");
+            }
+        }
+
+        for(var i=0;i<arr1.length;i++) {
+            for(var j=0;j<arr2.length;j++) {
+                console.log(par1+" : "+arr1[i]+" "+par2+" : "+arr2[j]);
+            }
+        }
+    }
+
+    if(n === 3) {
+        // 3 way test case generation
+        let par1 = readline.question('enter par 1 : ');
+        let par2 = readline.question('enter par 2 : ');
+        let par3 = readline.question('enter par 3 : ');
+        let arr1 = new Array();
+        let arr2 = new Array();
+        let arr3 = new Array();
+        
+        // searching par1 and par2 in final config
+        for(var i=0;i<finalConfig.length;i++) {
+            if(finalConfig[i].parameter === par1) {
+                // extract values into arr1
+                arr1 = finalConfig[i].value.split(" or ");
+                flag1 = 1;
+            }
+
+            if(finalConfig[i].parameter === par2) {
+                // exract the values into arr2
+                arr2 = finalConfig[i].value.split(" or ");
+            }
+
+            if(finalConfig[i].parameter === par3) {
+                // extract the values into arr3
+                arr3 = finalConfig[i].value.split(" or ");
+            }
+        }
+
+        for(var i=0;i<arr1.length;i++) {
+            for(var j=0;j<arr2.length;j++) {
+                for(var k=0;k<arr3.length;k++) {
+                    console.log(par1+" : "+arr1[i]+" "+par2+" : "+arr2[j]+par3+" : "+arr3[k]);
+                }   
+            }
+        }
+    }
+
+        
+
+    
+
+
+    /*
     for(var i=0;i<finalConfig.length;i++) {
         var parameter = finalConfig[i].parameter;
-        var values = finalConfig[i].value.split("or");
+        var values = finalConfig[i].value.split(" or ");
         PVMatrix[0][i] = String(parameter);
         for(var j=1;j<=values.length;j++) {
             PVMatrix[j][i] = String(values[j-1]);
@@ -31,7 +107,6 @@ function fillPVMatrix(finalConfig) {
     // print JSON
     //console.table(finalConfig);
 
-    /*
     for(var i=0;i<PVMatrix.length;i++) {
         for(var j=0;j<PVMatrix[0].length;j++) {
             if(PVMatrix[i][j] != undefined) {
@@ -53,7 +128,6 @@ function fillPVMatrix(finalConfig) {
         }
         console.log();
     }
-    */
 
     for(var i=0;i<PVMatrix.length;i++) {
         for(var j=0;j<PVMatrix[0].length;j++) {
@@ -66,7 +140,9 @@ function fillPVMatrix(finalConfig) {
         }
         console.log();
     }
-    console.log("\n\n")
+    console.log("\n\n");
+    */
+
 }
 
 function extractData(lifelines,messages,fragments) {
