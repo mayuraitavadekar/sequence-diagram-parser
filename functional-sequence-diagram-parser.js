@@ -31,16 +31,12 @@ function fillPVMatrix(finalConfig) {
         let arr1 = new Array();
         let arr2 = new Array();
         
-        // searching par1 and par2 in final config
         for(var i=0;i<finalConfig.length;i++) {
             if(finalConfig[i].parameter === par1) {
-                // extract values into arr1
                 arr1 = finalConfig[i].value.split(" or ");
-                flag1 = 1;
             }
 
             if(finalConfig[i].parameter === par2) {
-                // exract the values into arr2
                 arr2 = finalConfig[i].value.split(" or ");
             }
         }
@@ -88,12 +84,7 @@ function fillPVMatrix(finalConfig) {
             }
         }
     }
-
-        
-
     
-
-
     /*
     for(var i=0;i<finalConfig.length;i++) {
         var parameter = finalConfig[i].parameter;
