@@ -5,19 +5,18 @@ var par = new Array();
 var val = new Array;
 var column_number = -1;
 
-var PVMatrix = new Array(); // Creation of final pv-matrix
+var PVMatrix = new Array();
 
-var finalConfig = new Array(); // JSON File for paramaters and values
+var finalConfig = new Array();
 
 
-// creates 2D matrix according to the size of parameters
+// this function creates 2D matrix according to the size of parameters
 function createPVMatrix() {
     for(var i=0;i<finalConfig.length;i++) {
         PVMatrix[i] = new Array();
     }
 }
 
-// fill pv-matrix
 function fillPVMatrix(finalConfig) {
 
     for(var i=0;i<finalConfig.length;i++) {
@@ -30,9 +29,9 @@ function fillPVMatrix(finalConfig) {
     }
 
     // print JSON
-    console.table(finalConfig);
+    //console.table(finalConfig);
 
-    // printing matrix;
+    /*
     for(var i=0;i<PVMatrix.length;i++) {
         for(var j=0;j<PVMatrix[0].length;j++) {
             if(PVMatrix[i][j] != undefined) {
@@ -41,9 +40,34 @@ function fillPVMatrix(finalConfig) {
         }
         console.log();
     }
+    
+    /*
+    for(var i=0;i<PVMatrix.length;i++) {
+        for(var j=0;j<PVMatrix[0].length;j++) {
+            if(PVMatrix[j][i] != undefined) {
+                if(j == 0) 
+                   console.log(PVMatrix[j][i]+": ");
+                else
+                    console.log(PVMatrix[j][i]+" ");
+            }
+        }
+        console.log();
+    }
+    */
+
+    for(var i=0;i<PVMatrix.length;i++) {
+        for(var j=0;j<PVMatrix[0].length;j++) {
+            if(PVMatrix[j][i] != undefined) {
+                if(j == 0) 
+                    process.stdout.write(PVMatrix[j][i]+": ");
+                else
+                    process.stdout.write(PVMatrix[j][i]+" ");
+            }
+        }
+        console.log();
+    }
 }
 
-// raw function dealing with json file to extract fundamental info.
 function extractData(lifelines,messages,fragments) {
 
     for(var i=0;i<messages.length;i++) {
@@ -60,7 +84,6 @@ function extractData(lifelines,messages,fragments) {
     }
 }
 
-// main logic for extracting associated parameters and values.
 function paramterValuesMapping(messages,fragments) {
 
     // main logic
@@ -116,7 +139,6 @@ function paramterValuesMapping(messages,fragments) {
 
 }
 
-// check if guard conditions are available.
 function checkGuardCondition(fragments) {
 
     // this function checks if the guard conditions are available in the code
@@ -132,7 +154,6 @@ function checkGuardCondition(fragments) {
     return flag;
 }
 
-// extract guard conditions if available.
 function extractGuardConditions(fragments) {
 
     // getting gaurd conditions
@@ -266,7 +287,7 @@ function extractGuardConditions(fragments) {
         
 }
 
-// driver main code.
+
 function main() {
 
     var result;
@@ -310,5 +331,5 @@ function main() {
     });
 }
 
-// calling main
+
 main();
