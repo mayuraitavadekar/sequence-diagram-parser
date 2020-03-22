@@ -10,7 +10,6 @@ var PVMatrix = new Array();
 
 var finalConfig = new Array();
 
-
 // this function creates 2D matrix according to the size of parameters
 function createPVMatrix() {
     for(var i=0;i<finalConfig.length;i++) {
@@ -57,21 +56,16 @@ function fillPVMatrix(finalConfig) {
         let arr2 = new Array();
         let arr3 = new Array();
         
-        // searching par1 and par2 in final config
         for(var i=0;i<finalConfig.length;i++) {
             if(finalConfig[i].parameter === par1) {
-                // extract values into arr1
                 arr1 = finalConfig[i].value.split(" or ");
-                flag1 = 1;
             }
 
             if(finalConfig[i].parameter === par2) {
-                // exract the values into arr2
                 arr2 = finalConfig[i].value.split(" or ");
             }
 
             if(finalConfig[i].parameter === par3) {
-                // extract the values into arr3
                 arr3 = finalConfig[i].value.split(" or ");
             }
         }
